@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Psychic-Game</title>
+</head>
+
+<body>
+    <h1>THE PSYCHIC GAME</h1>
+    <p>Guess what letter I am thinking of</p>
+    <p id="wins"></p>
+    <p id="losses"></p>
+    <p id="guessLeft"></p>
+    <p id="guessesSoFar"></p>
+
+    <script>
+        //Variables------------------------------------------------------------------------------
+
+        //array of letters to choose from
+        var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+        //the counter starts at 0 for wins & losses
+        var wins = 0;
+        var losses = 0;
+
+        //the amount of guesses we have
+        var guesses = 9;
+
+        //our guess
+        var ourGuess;
+
+        //Functions------------------------------------------------------------------------------
+        
+        //key up to start a game
+        document.onkeyup = function (event) {
+            var userGuess = event.key;
+            var randomLetter = letters[Math.floor(Math.random()*letters.length)];
+
+            //function to update wins
+            function updateWins() {
+                document.querySelector("#wins").innerHTML = "Wins: " + wins;
+            }
+
+            //updates losses
+            function updateLosses() {
+                document.querySelector("#losses").innerHTML = "Losses: " + losses;
+            }
+
+            //update guesses
+            function updateGuesses() {
+                document.querySelector("#guessLeft").innerHTML = "Guesses Left: " + guesses;
+            }
+
+            function myGuess() {
+                if (userGuess === randomLetter){
+                    alert("You win!")
+                    wins++
+                    updateWins();
+                }
+                else{
+                    document.querySelector("#guessesSoFar").innerHTML = "Guesses so far: " + userGuess;
+                    guesses--;
+                    updateGuesses();
+                    if(guesses ===0)
+                    {
+                        alert("you lose!");
+                        losses++
+                        updateLosses();
+                        guesses = 9;
+                        updateGuesses();
+                    }
+                }
+            }
+
+            //check guesses so far
+            function guessesSoFar() {
+
+            }
+
+
+
+            //Game content----------------------------------------------------------------------------
+
+            updateWins();
+            updateLosses();
+            updateGuesses();
+            myGuess();
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
