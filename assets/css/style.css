@@ -1,0 +1,21 @@
+body{
+    background-color:Teal;
+}
+
+h1{
+    color:white;
+    font-size:30px;
+}
+
+#wins,#losses,#guessLeft{
+    color:white;
+    font-size:20px;
+
+}
+
+#guessesSoFar{
+    color:white;
+    font-size:20px;
+    font-style: italic;
+}
+

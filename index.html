@@ -12,6 +12,7 @@
 
 <body>
     <h1>THE PSYCHIC GAME</h1>
+    <div id = "image"><img src="assets/images/psychic.jpg"></div>
     <p id="wins"></p>
     <p id="losses"></p>
     <p id="guessLeft"></p>
@@ -64,7 +65,7 @@
             //update guesses
             function updateGuesses() {
                 document.querySelector("#guessLeft").innerHTML = "Guesses Left: " + guesses;
-                ourGuess += event.key;
+                ourGuess += event.key + " ";
                 document.querySelector("#guessesSoFar").innerHTML = "Your guesses so far: " + " " + ourGuess;
 
             }
